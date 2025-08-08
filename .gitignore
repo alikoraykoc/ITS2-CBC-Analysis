@@ -1,0 +1,13 @@
+tetrigidae_aligned.xfasta
+tetrix_bolivari.ct.txt
+tetrix_japonica.ct.txt
+tetrigidae_aligned.xfasta
+tetrix_bolivari.ct.txt
+tetrix_japonica.ct.txt
+*.ct.txt
+.DS_Store
+.idea/
+/output_cbc_table.tsv
+/cbc_node6_to_node5.tsv
+/cbc_results.tsv
+/cbc_all_positions.tsv

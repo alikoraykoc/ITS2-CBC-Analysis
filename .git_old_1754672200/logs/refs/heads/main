@@ -1,0 +1,4 @@
+0000000000000000000000000000000000000000 8cc7d68c51f77e9412bb1fcc4e5cf8b6569c9f55 Ali Koray Koç <kocalikoray@gmail.com> 1754670119 +0300	commit (initial): Initial commit
+8cc7d68c51f77e9412bb1fcc4e5cf8b6569c9f55 4f795299d1d199a2cfdd9a6edffd68f63a83f9d7 Ali Koray Koç <kocalikoray@gmail.com> 1754670441 +0300	commit: Remove large data files and update .gitignore
+4f795299d1d199a2cfdd9a6edffd68f63a83f9d7 7293ced00018c03af2feac8731636f5b6a9714dd Ali Koray Koç <kocalikoray@gmail.com> 1754671399 +0300	commit: Fix CI: point tests to tests/data/test_aligned.xfasta
+7293ced00018c03af2feac8731636f5b6a9714dd e6085a6ac760f41ac1fa141e536deeee487c8ce9 Ali Koray Koç <kocalikoray@gmail.com> 1754671587 +0300	commit: tests: fix XFasta lengths (seq/structure match)

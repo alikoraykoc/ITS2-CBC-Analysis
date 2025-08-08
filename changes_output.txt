@@ -1,0 +1,157 @@
+
+P A U P *
+Version 4.0a (build 168) for macOS (built on Aug  2 2020 at 06:41:30)
+Sun Aug  3 22:02:14 2025
+
+
+paup> describetrees 1 / brlens=yes chglist=yes;
+
+Tree description:
+
+  Unrooted tree(s) rooted using outgroup method
+
+  Note: No outgroup has been defined; tree is (arbitrarily) rooted at first taxon.
+  Optimality criterion = parsimony
+    Character-status summary:
+      Of 477 total characters:
+        All characters are of type 'unord'
+        All characters have equal weight
+        387 characters are constant (proportion = 0.811321)
+        78 variable characters are parsimony-uninformative
+        Number of parsimony-informative characters = 12
+    Gaps are treated as "missing"
+    Character-state optimization: Accelerated transformation (ACCTRAN)
+
+Tree 1 ("PAUP_1") (rooted using default outgroup)
+
+Branch lengths and linkages for tree #1 (unrooted)
+
+                                     Assigned       Minimum       Maximum
+                    Connected          branch      possible      possible
+   Node              to node           length        length        length
+-------------------------------------------------------------------------
+paratettix merid (1)     6                  0             0             0
+     5                   6                 33            12            33
+tetrix bolivari  (2)     5                 19            14            37
+Tetrix japonica (3)      5                 43            40            49
+tetrix bipunctat (4)     6                  0             0             0
+-------------------------------------------------------------------------
+Sum                                        95
+
+Tree length = 95
+Consistency index (CI) = 1.0000
+Homoplasy index (HI) = 0.0000
+CI excluding uninformative characters = 1.0000
+HI excluding uninformative characters = 0.0000
+Retention index (RI) = 1.0000
+Rescaled consistency index (RC) = 1.0000
+
+/--------------------------------------------------------------------------- paratettix meridionalis
+|
+|                                                 /------------------------- tetrix bolivari ITS2
+|                        /------------------------5
+|                        |                        \------------------------- Tetrix japonica
+\------------------------6
+                         \-------------------------------------------------- tetrix bipunctata
+
+Character change lists:
+
+Character    CI  Steps           Changes
+----------------------------------------------------------------
+9         1.000      1    node_5 A ==> G Tetrix japonica
+10        1.000      1    node_5 C ==> A tetrix bolivari
+12        1.000      1    node_5 G ==> T tetrix bolivari
+16        1.000      1    node_5 C ==> T Tetrix japonica
+18        1.000      1    node_5 G ==> C Tetrix japonica
+19        1.000      1    node_5 T ==> A tetrix bolivari
+23        1.000      1    node_5 T ==> C Tetrix japonica
+24        1.000      1    node_5 C --> G Tetrix japonica
+28        1.000      1    node_6 A --> C node_5
+                     1    node_5 C --> T tetrix bolivari
+31        1.000      1    node_6 C ==> T node_5
+32        1.000      1    node_5 A ==> G Tetrix japonica
+33        1.000      1    node_6 T ==> C node_5
+34        1.000      1    node_6 C ==> A node_5
+40        1.000      1    node_5 G ==> A tetrix bolivari
+41        1.000      1    node_5 A ==> T tetrix bolivari
+47        1.000      1    node_6 T --> A node_5
+                     1    node_5 A --> C tetrix bolivari
+48        1.000      1    node_5 A --> G tetrix bolivari
+68        1.000      1    node_5 T ==> C Tetrix japonica
+74        1.000      1    node_6 C ==> T node_5
+83        1.000      1    node_5 C ==> T Tetrix japonica
+86        1.000      1    node_5 A ==> C Tetrix japonica
+111       1.000      1    node_5 G ==> C Tetrix japonica
+116       1.000      1    node_5 T ==> G Tetrix japonica
+118       1.000      1    node_5 T ==> A Tetrix japonica
+124       1.000      1    node_6 A ==> G node_5
+127       1.000      1    node_5 A ==> G Tetrix japonica
+132       1.000      1    node_5 A ==> G tetrix bolivari
+136       1.000      1    node_6 C --> T node_5
+144       1.000      1    node_5 T ==> C tetrix bolivari
+146       1.000      1    node_6 G ==> T node_5
+148       1.000      1    node_5 C ==> T tetrix bolivari
+150       1.000      1    node_6 G ==> A node_5
+153       1.000      1    node_5 T ==> C tetrix bolivari
+159       1.000      1    node_5 T ==> A Tetrix japonica
+160       1.000      1    node_5 G ==> T tetrix bolivari
+162       1.000      1    node_5 A --> G tetrix bolivari
+170       1.000      1    node_5 C ==> T Tetrix japonica
+181       1.000      1    node_5 A ==> T tetrix bolivari
+189       1.000      1    node_5 T ==> G Tetrix japonica
+192       1.000      1    node_5 T ==> G Tetrix japonica
+220       1.000      1    node_5 T ==> A Tetrix japonica
+221       1.000      1    node_6 A --> G node_5
+                     1    node_5 G --> T tetrix bolivari
+222       1.000      1    node_5 A ==> T Tetrix japonica
+228       1.000      1    node_5 C ==> T Tetrix japonica
+235       1.000      1    node_5 C ==> G Tetrix japonica
+243       1.000      1    node_6 A ==> G node_5
+247       1.000      1    node_6 T ==> C node_5
+258       1.000      1    node_6 T ==> C node_5
+266       1.000      1    node_5 A ==> T Tetrix japonica
+282       1.000      1    node_6 T --> A node_5
+283       1.000      1    node_6 C --> G node_5
+289       1.000      1    node_6 G --> A node_5
+308       1.000      1    node_6 A --> G node_5
+312       1.000      1    node_6 A --> G node_5
+316       1.000      1    node_6 G --> C node_5
+321       1.000      1    node_6 T --> A node_5
+323       1.000      1    node_6 G --> A node_5
+333       1.000      1    node_5 G ==> A Tetrix japonica
+339       1.000      1    node_6 T --> C node_5
+                     1    node_5 C --> G Tetrix japonica
+340       1.000      1    node_6 T --> C node_5
+342       1.000      1    node_6 A --> T node_5
+349       1.000      1    node_5 T ==> C Tetrix japonica
+354       1.000      1    node_5 A ==> G Tetrix japonica
+356       1.000      1    node_5 A ==> G Tetrix japonica
+361       1.000      1    node_6 A --> G node_5
+395       1.000      1    node_5 A ==> T tetrix bolivari
+396       1.000      1    node_6 T ==> G node_5
+397       1.000      1    node_6 C --> A node_5
+400       1.000      1    node_6 C --> T node_5
+404       1.000      1    node_5 G ==> T Tetrix japonica
+407       1.000      1    node_5 A ==> T Tetrix japonica
+408       1.000      1    node_6 A --> G node_5
+                     1    node_5 G --> T Tetrix japonica
+409       1.000      1    node_5 G ==> C Tetrix japonica
+411       1.000      1    node_5 T ==> A Tetrix japonica
+413       1.000      1    node_5 C ==> A Tetrix japonica
+419       1.000      1    node_5 A ==> T tetrix bolivari
+420       1.000      1    node_6 C --> T node_5
+428       1.000      1    node_5 T ==> C tetrix bolivari
+431       1.000      1    node_5 T ==> C Tetrix japonica
+432       1.000      1    node_5 G ==> C Tetrix japonica
+433       1.000      1    node_5 A ==> G Tetrix japonica
+435       1.000      1    node_5 A ==> C Tetrix japonica
+444       1.000      1    node_5 C ==> T Tetrix japonica
+447       1.000      1    node_6 G ==> A node_5
+462       1.000      1    node_5 G ==> T Tetrix japonica
+471       1.000      1    node_5 C ==> T Tetrix japonica
+472       1.000      1    node_5 C ==> T Tetrix japonica
+473       1.000      1    node_5 A ==> T Tetrix japonica
+474       1.000      1    node_5 A ==> C Tetrix japonica
+475       1.000      1    node_6 T --> C node_5
+
+paup> log stop;
