@@ -1,4 +1,5 @@
-[![CBC Analysis CI](https://github.com/alikoraykoc/ITS2-CBC-Analysis/actions/workflows/ci.yml/badge.svg)](https://github.com/alikoraykoc/ITS2-CBC-Analysis/actions/workflows/ci.yml)
+[![CBC Analysis CI](https://github.com/alikoraykoc/ITS2-CBC-Analysis/actions/workflows/ci.yml/badge.svg)](https://github.com/alikoraykoc/ITS2-CBC-Analysis/actions/workflows/ci.yml) [![DOI](https://zenodo.org/badge/1034604068.svg)](https://doi.org/10.5281/zenodo.16782240)
+
 
 # CBC Analysis for ITS2
 
