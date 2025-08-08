@@ -1,4 +1,4 @@
-
+[![CBC Analysis CI](https://github.com/alikoraykoc/ITS2-CBC-Analysis/actions/workflows/ci.yml/badge.svg)](https://github.com/alikoraykoc/ITS2-CBC-Analysis/actions/workflows/ci.yml)
 
 # CBC Analysis for ITS2
 
