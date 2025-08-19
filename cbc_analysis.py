@@ -20,7 +20,7 @@ def normalize_arrow(s):
     """Normalize change arrows to a single '->' representation."""
     if s is None:
         return ""
-    return re.sub(r"(==>|-->|→)", "->", s)
+    return re.sub(r"(==>|-->|→|⇒|—>|->)", "->", s)
 
 
 # =========================
@@ -54,36 +54,72 @@ def parse_xfasta(path):
 
 def parse_changes_with_events(changes_path):
     """
-    Parse PAUP 'Character change lists' block into pos -> [event lines, ...]
+    Parse PAUP 'Apomorphy lists' block (from 'describetrees / apolist=yes')
+    into: pos (1-based alignment column) -> [event lines...]
+    Each event line will include the branch header for context.
     """
     with open(changes_path, "r") as f:
-        text = f.read()
-    m = re.search(r"Character\s+CI\s+Steps\s+Changes\s*-+\n(.+?)\n\s*paup>", text, flags=re.S|re.I)
-    if not m:
-        m = re.search(r"Character\s+CI\s+Steps\s+Changes\s*-+\n(.+?)\n", text, flags=re.S|re.I)
-    if not m:
-        raise ValueError("Could not find PAUP Character change list section.")
-    block = m.group(1)
-    entries = re.split(r"\n(?=\d+\s+)", block.strip())
+        lines = [ln.rstrip("\n") for ln in f]
+
+    # Find start of "Apomorphy lists:"
+    start_idx = None
+    for i, ln in enumerate(lines):
+        if re.search(r"^\s*Apomorphy lists:\s*$", ln):
+            start_idx = i + 1
+            break
+    if start_idx is None:
+        raise ValueError("Could not find 'Apomorphy lists:' section in PAUP output. Make sure you used 'describetrees / apolist=yes'.")
+
+    # Patterns
+    # Example header: "node_6 --> node_5" or "node_5 --> tetrix bolivari"
+    header_pat = re.compile(r"^\s*(node_\d+\s+-->\s+(?:node_\d+|[A-Za-z_ ]+\(?\d*\)?))\s*$")
+    # Example entry lines (columns): "   10     1   1.000  C ==> A" or "... A --> C"
+    entry_pat = re.compile(r"^\s*(\d+)\s+\d+\s+[\d.]+\s+([ACGTU\-])\s*(?:==>|-->|→|⇒|->)\s*([ACGTU\-])\s*$")
+
+    header_entry_pat = re.compile(
+        r"^\s*(node_\d+\s+-->\s+(?:node_\d+|[A-Za-z_ ]+\(?\d*\)?))\s+"
+        r"(\d+)\s+\d+\s+[\d.]+\s+([ACGTU\-])\s*(?:==>|-->|→|⇒|->)\s*([ACGTU\-])\s*$"
+    )
+
     pos2events = {}
-    for entry in entries:
-        lines = entry.strip().splitlines()
-        if not lines:
+    current_header = None
+
+    # Skip down to the table body (under the dashed line)
+    i = start_idx
+    while i < len(lines) and not re.search(r"^-{3,}", lines[i]):
+        mhead = header_pat.match(lines[i])
+        if mhead:
+            current_header = mhead.group(1)
+        i += 1
+
+    # Walk through the sections
+    for j in range(i, len(lines)):
+        ln = lines[j]
+        if not ln.strip():
             continue
-        mpos = re.match(r"(\d+)\s+\S+\s+\d+\s+(.*)", lines[0])
-        if not mpos:
+        mheadrow = header_entry_pat.match(ln)
+        if mheadrow:
+            current_header = mheadrow.group(1)
+            pos = int(mheadrow.group(2))
+            b_from = mheadrow.group(3)
+            b_to = mheadrow.group(4)
+            ev = f"{current_header}: {b_from} -> {b_to}"
+            pos2events.setdefault(pos, []).append(ev)
             continue
-        pos = int(mpos.group(1))
-        events = []
-        rest_first = mpos.group(2).strip()
-        if rest_first:
-            events.append(rest_first)
-        for ln in lines[1:]:
-            ln = ln.strip()
-            if ln:
-                events.append(ln)
-        clean_events = [re.sub(r"\s+", " ", ev).strip() for ev in events]
-        pos2events[pos] = clean_events
+        mhead = header_pat.match(ln)
+        if mhead:
+            current_header = mhead.group(1)
+            continue
+        mrow = entry_pat.match(ln)
+        if mrow and current_header:
+            pos = int(mrow.group(1))
+            b_from = mrow.group(2)
+            b_to   = mrow.group(3)
+            ev = f"{current_header}: {b_from} -> {b_to}"
+            pos2events.setdefault(pos, []).append(ev)
+            continue
+        if re.search(r"^-{3,}", ln):
+            continue
     return pos2events
 
 # =========================
